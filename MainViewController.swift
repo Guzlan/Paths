@@ -8,11 +8,14 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+class MainViewController: NSViewController, NSOutlineViewDelegate {
     
     
-
+    @IBOutlet weak var table: NSOutlineView!
     @IBOutlet weak var textField: NSTextField!
+    
+    let source = DataSource()
+    
     @IBAction func clipboardCopy(sender: NSButton) {
         
         print("Hello")
@@ -20,6 +23,7 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
+        table.setDataSource(source)
         // userAmr?.setChildren()
         //userAmr?.printChildren()
         //user!.printChildren()
@@ -27,5 +31,10 @@ class MainViewController: NSViewController {
         //view.addSubview(lalala
         // Do view setup here.
     }
+//    func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
+//        let view = NSTableCellView?()
+//        
+//        return view
+//    }
     
 }

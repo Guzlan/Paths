@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Paths" customModuleProvider="target">
             <connections>
+                <outlet property="table" destination="0WP-HO-n01" id="yx5-3F-NmK"/>
                 <outlet property="textField" destination="L28-Jd-sdi" id="l3Q-Ld-i2c"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -41,7 +42,7 @@
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="116" minWidth="40" maxWidth="1000" id="Grh-OC-Nsb">
+                                    <tableColumn identifier="FileColumn" width="116" minWidth="40" maxWidth="1000" id="Grh-OC-Nsb">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="File">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -54,8 +55,32 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
+                                            <tableCellView identifier="ItemCell" id="qvy-2e-288">
+                                                <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="cj4-eW-JMG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="96" id="GMx-AA-sxQ"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="yrq-9f-sno">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="cj4-eW-JMG" firstAttribute="leading" secondItem="qvy-2e-288" secondAttribute="leading" constant="2" id="VK7-jL-22i"/>
+                                                    <constraint firstItem="cj4-eW-JMG" firstAttribute="centerY" secondItem="qvy-2e-288" secondAttribute="centerY" id="aoG-iU-sYy"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="textField" destination="cj4-eW-JMG" id="3ZS-Nz-8xm"/>
+                                                </connections>
+                                            </tableCellView>
                                             <tableCellView identifier="FileCell" id="bM0-Tc-8Yp">
-                                                <rect key="frame" x="1" y="1" width="320" height="17"/>
+                                                <rect key="frame" x="1" y="20" width="116" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wdr-Gu-JhG">
@@ -80,7 +105,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="417" minWidth="40" maxWidth="1000" id="0Ot-aQ-eVe">
+                                    <tableColumn identifier="DateColumn" width="417" minWidth="40" maxWidth="1000" id="0Ot-aQ-eVe">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Date">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -163,7 +188,7 @@
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="jKE-2p-cUL"/>
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="leading" secondItem="L28-Jd-sdi" secondAttribute="leading" id="zw4-Q2-Piq"/>
             </constraints>
-            <point key="canvasLocation" x="933.5" y="204.5"/>
+            <point key="canvasLocation" x="590.5" y="152.5"/>
         </customView>
     </objects>
     <resources>

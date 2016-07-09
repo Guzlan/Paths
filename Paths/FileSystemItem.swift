@@ -60,7 +60,6 @@ class FileSystemItem: NSObject {
                 var array = [String]()
                 do {
                     array.appendContentsOf(try fileManager.contentsOfDirectoryAtPath(fullPath!))
-                    print(array)
                     self.children = [FileSystemItem]()
                 }catch{
                     print("Could not add the contents of your directory")
@@ -69,6 +68,7 @@ class FileSystemItem: NSObject {
                 for child in array {
                     let newChild = FileSystemItem(path: child, parentItem: self)
                     self.children!.append(newChild)
+                    //print ("I just appended \(newChild.parentNode)")
                 }
             }else {
                 self.children = FileSystemItem.leafNodes
@@ -104,7 +104,7 @@ class FileSystemItem: NSObject {
             return (self.children! == FileSystemItem.leafNodes) ? -1 : (self.children!.count)
         }
         else {
-            print("Can't get number of children, something is not set properly")
+            print("Can't get number of children, probably not a directory ..")
             return -1
         }
     }
@@ -113,10 +113,12 @@ class FileSystemItem: NSObject {
     func getFullPath ()->String? {
         if self.relativePath != nil {
             if self.parentNode == nil {
+                print(self.relativePath)
                 print("No parents for this file item")
                 return relativePath
             }else {
                 // recurse up the hierarchy, prepending each parent’s path
+                print ("but there is a parent for \(relativePath)")
                 return parentNode?.getFullPath()?.stringByAppendingString(relativePath!+"/")
             }
         }
