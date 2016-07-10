@@ -58,8 +58,14 @@ class FileSystemItem: NSObject {
             
             if isDirectory && valid {
                 var array = [String]()
+                var array2 = [NSURL]()
                 do {
-                    array.appendContentsOf(try fileManager.contentsOfDirectoryAtPath(fullPath!))
+//                    array.appendContentsOf(try fileManager.contentsOfDirectoryAtPath(fullPath!))
+//                    print (array)
+                    array2.appendContentsOf(try fileManager.contentsOfDirectoryAtURL(NSURL(fileURLWithPath: fullPath!), includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions.SkipsHiddenFiles))
+                    array = array2.map { String($0.path!)}
+                    print (array)
+//                    print(strings)
                     self.children = [FileSystemItem]()
                 }catch{
                     print("Could not add the contents of your directory")
@@ -104,7 +110,7 @@ class FileSystemItem: NSObject {
             return (self.children! == FileSystemItem.leafNodes) ? -1 : (self.children!.count)
         }
         else {
-            print("Can't get number of children, probably not a directory ..")
+            print("Can't get number of children, probably a normal file")
             return -1
         }
     }
