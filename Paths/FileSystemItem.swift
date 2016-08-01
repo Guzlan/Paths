@@ -15,6 +15,8 @@ class FileSystemItem: NSObject {
     var parentNode : FileSystemItem? // the parent item of this sytem file item (itself is an item)
     var children : [FileSystemItem]? // children of the current system file item (themselves are children)
     
+    var date = NSDate()
+    
     //type variables that hold the root item and the leaf items/nodes
     static var rootItem:FileSystemItem?
     static var leafNodes = [FileSystemItem]()
@@ -41,6 +43,13 @@ class FileSystemItem: NSObject {
     func setChildren (){
             let fileManager = NSFileManager.defaultManager()  // get a file manager instance to use for fetching paths
             let fullPath = self.getFullPath()
+        do {
+            let attributes = try fileManager.attributesOfItemAtPath(fullPath!)
+            self.date = attributes[NSFileCreationDate] as! NSDate
+        }
+        catch{
+            
+        }
             var isDirectory = false, valid = false
             
             if fullPath != nil{
@@ -133,5 +142,8 @@ class FileSystemItem: NSObject {
             return nil
         }
         
+    }
+    func getDate () ->NSDate{
+            return self.date
     }
 }

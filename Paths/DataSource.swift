@@ -13,10 +13,15 @@ import AppKit
 class DataSource: NSObject, NSOutlineViewDataSource{
     
     let rootFile: FileSystemItem?
-    
+    let dateFormatter = NSDateFormatter()
+    //let pb: NSPasteboard?
     override init(){
+        self.pb = NSPasteboard(name: NSDragPboard)
         self.rootFile = FileSystemItem.getRootItem()
         self.rootFile?.setChildren()
+        self.dateFormatter.dateStyle = .MediumStyle
+        self.dateFormatter.timeStyle = .NoStyle
+        self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
         super.init()
     }
     func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int {
@@ -49,48 +54,36 @@ class DataSource: NSObject, NSOutlineViewDataSource{
         }
     }
     
-    
-//    func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
-//        print ("I'm being called 4")
-//        var view: NSTableCellView?
-//        let filetItem = item as? FileSystemItem
-//        view = outlineView.makeViewWithIdentifier("FileCell", owner: self) as? NSTableCellView
-//        if let textField = view?.textField {
-//            textField.stringValue = (filetItem?.getRelativePath())!
-//            textField.sizeToFit()
-//        }
-//        return view
-//    }
-    
-    
         func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
-            if tableColumn?.identifier == "FileColumn"{
+        
                 if item != nil {
                     let filetItem = item as? FileSystemItem
-                    return (filetItem?.getRelativePath() == "/") ? "root" : filetItem?.getRelativePath() 
+                    if tableColumn?.identifier == "FileColumn"{
+                        return (filetItem?.getRelativePath() == "/") ? "root" : filetItem?.getRelativePath()
+                    }
+                    else {
+                        return dateFormatter.stringFromDate((filetItem?.getDate())!)
+                    }
                 }else {
-                    return "root"
+                    return "not set"
                 }
-            }else {
-                return "Date.."
-            }
         }
-        
     
-    //    @objc func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
-    //        print("I'm being called 4")
-    //        if tableColumn?.identifier == "FileColumn"{
-    //            print ("I'm filling the fileColumn")
-    //            if let filetItem = item as? FileSystemItem{
-    //                return filetItem.getRelativePath()
-    //            }else {
-    //                return "/"
-    //            }
-    //
-    //        }else {
-    //            print ("I'm filling the dateColumn")
-    //            return "Date will go here.."
-    //        }
-    //    }
-    
+    let pb: NSPasteboard?
+    func outlineView(outlineView: NSOutlineView, writeItems items: [AnyObject], toPasteboard pasteboard: NSPasteboard) -> Bool {
+        var array = [String]()
+        self.pb?.declareTypes([NSFilesPromisePboardType], owner: self)
+        if let fileItem = items[0] as? FileSystemItem {
+            let fileURL = fileItem.getFullPath()!
+            //let fileURL = NSURL(fileURLWithPath: fileItem.getFullPath()!)
+            array.append(fileURL)
+            print (array);
+            self.pb?.setPropertyList(array, forType: NSFilenamesPboardType)
+            //self.pb?.addTypes([fileURL.pathExtension!], owner: nil)
+            //self.pb?.writeObjects(array)
+            return true
+        }else {
+            return false
+        }
+    }
 }

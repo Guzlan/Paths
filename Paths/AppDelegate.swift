@@ -13,18 +13,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   //  This creates a Status Item — aka application icon — in the menu bar with a fixed length that the user will see and use.
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     let popover = NSPopover()
-    // get the image of icon that the user will click 
+        // get the image of icon that the user will click
     let barIconImage = NSImage(named: "StatusBarButtonImage")
     
     @IBOutlet weak var window: NSWindow!
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // setting the button image and the action is calls 
+        //let applicationMenu = NSMenu()
+
+        //applicationMenu.addItem(NSMenuItem(title: "Quit", action: nil, keyEquivalent: "q"))
+       // statusItem.menu = applicationMenu
+        // setting the button image and the action is calls
         if let button = statusItem.button{
             button.image = barIconImage
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
+
         // set the popover view controller as the MainViewController which is the main one for our application
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
     }
@@ -50,5 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             openPopover(sender)
         }
     }
+//    func initializeMenuItems() {
+//        self.applicationMenu.addItem(NSMenuItem(title: "Quit", action: Selector(NSApplication.sharedApplication().terminate(self)), keyEquivalent: "q"))
+//    }
+
 }
 

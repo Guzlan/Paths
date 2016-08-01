@@ -7,19 +7,26 @@
 //
 
 import Cocoa
-class MainViewController: NSViewController, NSOutlineViewDelegate {
+class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDelegate {
     
     
     @IBOutlet weak var table: NSOutlineView!
     @IBOutlet weak var textField: NSTextField!
+  
     let source = DataSource()
     let board = NSPasteboard.generalPasteboard()
+    let applicationMenu = NSMenu()
+    //let dataBoard = NSPasteboard.generalPasteboard()
+    //var urlOfData = NSURL()
     
     @IBAction func clipboardCopy(sender: NSButton) {
         board.clearContents()
         board.setString(textField.stringValue, forType: NSPasteboardTypeString)
-        print("Copied successfully")
         
+    }
+    
+    @IBAction func quiteButton(sender: NSButton) {
+        NSApplication.sharedApplication().terminate(sender)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,10 @@ class MainViewController: NSViewController, NSOutlineViewDelegate {
         table.setDelegate(self)
         table.indentationPerLevel = CGFloat(20.0)
         table.selectedRow
+        table.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+        
+        
+        //urlOfData.writeToPasteboard(dataBoard)
         // userAmr?.setChildren()
         //userAmr?.printChildren()
         //user!.printChildren()
@@ -41,6 +52,7 @@ class MainViewController: NSViewController, NSOutlineViewDelegate {
         self.textField.stringValue = (filetItem?.getFullPath())!
         return true
     }
+
 //    func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
 //        let view = NSTableCellView?()
 //        
