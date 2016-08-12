@@ -20,18 +20,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        //let applicationMenu = NSMenu()
-
-        //applicationMenu.addItem(NSMenuItem(title: "Quit", action: nil, keyEquivalent: "q"))
-       // statusItem.menu = applicationMenu
+   
+        
         // setting the button image and the action is calls
         if let button = statusItem.button{
             button.image = barIconImage
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
-
         // set the popover view controller as the MainViewController which is the main one for our application
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

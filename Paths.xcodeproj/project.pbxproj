@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C52F50451D58FCAC00A73F5D /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52F50391D58FBB500A73F5D /* EonilFileSystemEvents.framework */; };
 		C557C5621D24F7DA000DA747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557C5611D24F7DA000DA747 /* AppDelegate.swift */; };
 		C557C5641D24F7DA000DA747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C557C5631D24F7DA000DA747 /* Assets.xcassets */; };
 		C557C5671D24F7DA000DA747 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C557C5651D24F7DA000DA747 /* MainMenu.xib */; };
@@ -18,7 +19,39 @@
 		C56042501D2908A100521EA4 /* FileSystemItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560424F1D2908A100521EA4 /* FileSystemItem.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C52F50381D58FBB500A73F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970A61A1569090037649F;
+			remoteInfo = EonilFileSystemEvents;
+		};
+		C52F503A1D58FBB500A73F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970961A155DD50037649F;
+			remoteInfo = InternalTester;
+		};
+		C52F503C1D58FBB500A73F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45DA95801A69F1610091410B;
+			remoteInfo = InternalTester4;
+		};
+		C52F503E1D58FBB500A73F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45BF99C51A131E3A004E4E2E;
+			remoteInfo = TestdriveApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = "../../Downloads/FileSystemEvents-master/Project/EonilFileSystemEvents.xcodeproj"; sourceTree = "<group>"; };
 		C557C55E1D24F7DA000DA747 /* Paths.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paths.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C557C5611D24F7DA000DA747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C557C5631D24F7DA000DA747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,15 +70,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52F50451D58FCAC00A73F5D /* EonilFileSystemEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C52F50321D58FBB500A73F5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C52F50391D58FBB500A73F5D /* EonilFileSystemEvents.framework */,
+				C52F503B1D58FBB500A73F5D /* InternalTester */,
+				C52F503D1D58FBB500A73F5D /* InternalTester4.app */,
+				C52F503F1D58FBB500A73F5D /* TestdriveApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C557C5551D24F7DA000DA747 = {
 			isa = PBXGroup;
 			children = (
+				C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */,
 				C557C5601D24F7DA000DA747 /* Paths */,
 				C557C55F1D24F7DA000DA747 /* Products */,
 			);
@@ -123,12 +169,49 @@
 			mainGroup = C557C5551D24F7DA000DA747;
 			productRefGroup = C557C55F1D24F7DA000DA747 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C52F50321D58FBB500A73F5D /* Products */;
+					ProjectRef = C52F50311D58FBB500A73F5D /* EonilFileSystemEvents.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C557C55D1D24F7DA000DA747 /* Paths */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C52F50391D58FBB500A73F5D /* EonilFileSystemEvents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EonilFileSystemEvents.framework;
+			remoteRef = C52F50381D58FBB500A73F5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C52F503B1D58FBB500A73F5D /* InternalTester */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = InternalTester;
+			remoteRef = C52F503A1D58FBB500A73F5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C52F503D1D58FBB500A73F5D /* InternalTester4.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = InternalTester4.app;
+			remoteRef = C52F503C1D58FBB500A73F5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C52F503F1D58FBB500A73F5D /* TestdriveApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestdriveApp.app;
+			remoteRef = C52F503E1D58FBB500A73F5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C557C55C1D24F7DA000DA747 /* Resources */ = {
@@ -257,7 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paths/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -270,7 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paths/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

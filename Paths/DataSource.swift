@@ -8,6 +8,7 @@
 
 import Foundation
 import AppKit
+import CoreServices
 
 
 class DataSource: NSObject, NSOutlineViewDataSource{
@@ -33,33 +34,27 @@ class DataSource: NSObject, NSOutlineViewDataSource{
         }
     }
     func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
-        print ("I'm being called 2")
         let filetItem = item as? FileSystemItem
         filetItem?.setChildren()
         let fileItemTruth = (filetItem!.numberOFChildren() != -1) ? true : false
-        //if fileItemTruth{ filetItem?.printChildren()}
-        print("Am I expandable ? \(fileItemTruth)")
         return fileItemTruth
         
     }
     func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
-        print ("I'm being called 3")
         if item != nil{
-            print("Item is not nil in 3")
             let filetItem = item as? FileSystemItem
             return filetItem!.getChildAtIndex(index)!
         }else {
-            print("Item is nil in 3")
             return self.rootFile!
         }
     }
     
         func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
-        
-                if item != nil {
+            if item != nil {
                     let filetItem = item as? FileSystemItem
                     if tableColumn?.identifier == "FileColumn"{
                         return (filetItem?.getRelativePath() == "/") ? "root" : filetItem?.getRelativePath()
+                        
                     }
                     else {
                         return dateFormatter.stringFromDate((filetItem?.getDate())!)
@@ -75,15 +70,16 @@ class DataSource: NSObject, NSOutlineViewDataSource{
         self.pb?.declareTypes([NSFilesPromisePboardType], owner: self)
         if let fileItem = items[0] as? FileSystemItem {
             let fileURL = fileItem.getFullPath()!
-            //let fileURL = NSURL(fileURLWithPath: fileItem.getFullPath()!)
             array.append(fileURL)
             print (array);
             self.pb?.setPropertyList(array, forType: NSFilenamesPboardType)
-            //self.pb?.addTypes([fileURL.pathExtension!], owner: nil)
-            //self.pb?.writeObjects(array)
             return true
         }else {
             return false
         }
+    }
+    
+    func myCallbackFunction () {
+        print(" I'm the call back function")
     }
 }

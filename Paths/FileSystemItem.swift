@@ -16,6 +16,7 @@ class FileSystemItem: NSObject {
     var children : [FileSystemItem]? // children of the current system file item (themselves are children)
     
     var date = NSDate()
+    var type = String()
     
     //type variables that hold the root item and the leaf items/nodes
     static var rootItem:FileSystemItem?
@@ -46,6 +47,13 @@ class FileSystemItem: NSObject {
         do {
             let attributes = try fileManager.attributesOfItemAtPath(fullPath!)
             self.date = attributes[NSFileCreationDate] as! NSDate
+            if let currentFileItemType = attributes[NSFileType] as! String? {
+                self.type = currentFileItemType
+            }else {
+                self.type = "folder"
+            }
+            
+            
         }
         catch{
             
