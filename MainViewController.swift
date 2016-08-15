@@ -95,6 +95,15 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         }
         return true
     }
-    
+//    func tableView(tableView: NSTableView, willDisplayCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, row: Int) {
+//        
+//        if let currentCell  = cell as NSOutlineVie
+//        if tableView.selectedRowIndexes.containsIndex(row){
+//            cell.backgroundColor =  NSColor.blueColor()
+//        }else{
+//            cell.backgroundColor = NSColor.whiteColor()
+//        }
+//        cell.drawsBackground = true;
+//    }
     
 }

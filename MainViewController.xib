@@ -152,7 +152,7 @@
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
                                         <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" drawsBackground="YES" id="Wrp-Oq-9OS">
-                                            <font key="font" metaFont="systemLight" size="14"/>
+                                            <font key="font" size="14" name="Helvetica-Light"/>
                                             <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         </textFieldCell>
