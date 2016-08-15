@@ -13,8 +13,9 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
     
     
     
-    @IBOutlet weak var clipView: NSClipView!
-    @IBOutlet weak var scrollView: NSScrollView!
+    @IBOutlet weak var quiteButton: NSButton!
+    @IBOutlet weak var refreshButton: NSButton!
+    @IBOutlet weak var header: NSTableHeaderView!
     @IBOutlet weak var table: NSOutlineView!
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var dateTexField: NSTextField!
@@ -23,9 +24,6 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
     let board = NSPasteboard.generalPasteboard()
     let applicationMenu = NSMenu()
     let dateFormatter = NSDateFormatter()
-    let testString = "MEOW"
-    //var	monitor	=	nil as FileSystemEventMonitor?
-    //var	queue	=	dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
     @IBAction func clipboardCopy(sender: NSButton) {
         board.clearContents()
         board.setString(textField.stringValue, forType: NSPasteboardTypeString)
@@ -60,28 +58,30 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+  
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor(calibratedRed: 0.235, green: 0.498, blue: 0.616, alpha: 1.00).CGColor
+        self.view.layer?.backgroundColor = NSColor(calibratedRed: 0.949, green: 0.949, blue: 0.949, alpha: 1.00).CGColor
+        self.table.backgroundColor =  NSColor(calibratedRed: 0.949, green: 0.949, blue: 0.949, alpha: 1.00)
 
         self.textField.stringValue = ""
-//        scrollView.wantsLayer = true
-//        scrollView.layer?.backgroundColor =
-//            NSColor(calibratedRed: 0.235, green: 0.498, blue: 0.616, alpha: 1.00).CGColor
-//        scrollView.backgroundColor = NSColor(calibratedRed: 0.235, green: 0.498, blue: 0.616, alpha: 1.00)
+        
+        
+        self.refreshButton.bezelStyle = NSBezelStyle.SmallSquareBezelStyle
+        self.quiteButton.bezelStyle = NSBezelStyle.SmallSquareBezelStyle
+        self.quiteButton.wantsLayer = true;
+        self.quiteButton.layer?.backgroundColor = NSColor(calibratedRed: 0.922, green: 0.922, blue: 0.922, alpha: 1.00).CGColor
         
         table.setDataSource(source)
         table.setDelegate(self)
         table.indentationPerLevel = CGFloat(20.0)
         table.selectedRow
         table.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
-                clipView.wantsLayer = true
-               clipView.layer?.backgroundColor =
-                    NSColor(calibratedRed: 0.235, green: 0.498, blue: 0.616, alpha: 1.00).CGColor
-                clipView.backgroundColor = NSColor(calibratedRed: 0.235, green: 0.498, blue: 0.616, alpha: 1.00)
-        
+
         self.dateFormatter.dateStyle = .MediumStyle
         self.dateFormatter.timeStyle = .NoStyle
         self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        print("The header is\(self.table.tableColumnWithIdentifier("FileColumn")?.headerCell.title)")
         
     }
     func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool {
@@ -95,5 +95,6 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         }
         return true
     }
+    
     
 }

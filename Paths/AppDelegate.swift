@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         // set the popover view controller as the MainViewController which is the main one for our application
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
-        
+        popover.animates = false;
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
