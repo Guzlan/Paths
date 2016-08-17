@@ -68,18 +68,18 @@ class DataSource: NSObject, NSOutlineViewDataSource{
     func outlineView(outlineView: NSOutlineView, writeItems items: [AnyObject], toPasteboard pasteboard: NSPasteboard) -> Bool {
         var array = [String]()
         self.pb?.declareTypes([NSFilesPromisePboardType], owner: self)
-        if let fileItem = items[0] as? FileSystemItem {
-            let fileURL = fileItem.getFullPath()!
-            array.append(fileURL)
-            print (array);
-            self.pb?.setPropertyList(array, forType: NSFilenamesPboardType)
-            return true
-        }else {
-            return false
+        for item in items {
+            if let fileItem = item as? FileSystemItem {
+                let fileURL = fileItem.getFullPath()!
+                array.append(fileURL)
+                print (array);
+            }
+            else {
+                return false
+            }
         }
+        self.pb?.setPropertyList(array, forType: NSFilenamesPboardType)
+        return true
     }
-    
-    func myCallbackFunction () {
-        print(" I'm the call back function")
-    }
+
 }

@@ -77,6 +77,7 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         table.indentationPerLevel = CGFloat(20.0)
         table.selectedRow
         table.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+        table.allowsMultipleSelection = true 
 
         self.dateFormatter.dateStyle = .MediumStyle
         self.dateFormatter.timeStyle = .NoStyle

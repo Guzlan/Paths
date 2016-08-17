@@ -8,11 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="Paths" customModuleProvider="target">
             <connections>
-                <outlet property="clipView" destination="xjE-FI-FAu" id="LMC-cv-s1N"/>
                 <outlet property="dateTexField" destination="pbu-Mq-Nk9" id="Iir-3I-v4F"/>
                 <outlet property="quiteButton" destination="XCB-vb-kWD" id="eYG-Fm-0Ih"/>
                 <outlet property="refreshButton" destination="twt-BJ-4Sk" id="6mU-US-pDC"/>
-                <outlet property="scrollView" destination="ZSB-IQ-JDJ" id="XIV-4b-f0e"/>
                 <outlet property="table" destination="0WP-HO-n01" id="yx5-3F-NmK"/>
                 <outlet property="textField" destination="L28-Jd-sdi" id="l3Q-Ld-i2c"/>
                 <outlet property="typeTextField" destination="01O-op-fPj" id="bHL-5z-dog"/>
@@ -64,7 +62,7 @@
                                 </textField>
                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-Mq-Nk9">
                                     <rect key="frame" x="-2" y="106" width="98" height="18"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="Oob-ZP-LyN">
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="Oob-ZP-LyN">
                                         <font key="font" metaFont="system" size="14"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -80,7 +78,7 @@
                                 </textField>
                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="01O-op-fPj">
                                     <rect key="frame" x="-2" y="0.0" width="98" height="18"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="bXS-jO-V6z">
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="bXS-jO-V6z">
                                         <font key="font" metaFont="system" size="14"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -139,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <outlineView focusRingType="none" appearanceType="aqua" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" indentationPerLevel="16" outlineTableColumn="Grh-OC-Nsb" id="0WP-HO-n01">
-                                <rect key="frame" x="0.0" y="0.0" width="425" height="360"/>
+                                <rect key="frame" x="0.0" y="0.0" width="425" height="20"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="2" height="3"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -202,35 +200,6 @@
             </constraints>
             <point key="canvasLocation" x="331.5" y="-431.5"/>
         </customView>
-        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="3we-2A-OxO">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="135"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <clipView key="contentView" id="flx-ca-3Qr">
-                <rect key="frame" x="1" y="1" width="238" height="133"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Lm6-bu-luT">
-                        <rect key="frame" x="0.0" y="0.0" width="238" height="133"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <size key="minSize" width="238" height="133"/>
-                        <size key="maxSize" width="463" height="10000000"/>
-                        <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <size key="minSize" width="238" height="133"/>
-                        <size key="maxSize" width="463" height="10000000"/>
-                    </textView>
-                </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            </clipView>
-            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="lnF-gr-vhi">
-                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aKL-L5-hWt">
-                <rect key="frame" x="223" y="1" width="16" height="133"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-        </scrollView>
     </objects>
     <resources>
         <image name="Clipboard" width="104" height="104"/>
