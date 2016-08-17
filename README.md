@@ -9,11 +9,11 @@
 *Some screenshots of what it looks like..*
 
 Running on desktop 
-<img src="Screenshots/1.png">
+<img src="Screenshots/1.jpg">
 Dragging and dropping files to desktop 
-<img src="Screenshots/2.png">
+<img src="Screenshots/2.jpg">
 Dragging and dropping files to Xcode project navigator while in full screen
-<img src="Screenshots/3.png">
+<img src="Screenshots/3.jpg">
 Sublime text for comparison 
-<img src="Screenshots/4.png">
+<img src="Screenshots/4.jpg">
 
