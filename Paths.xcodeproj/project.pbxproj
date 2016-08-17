@@ -12,12 +12,11 @@
 		C557C5671D24F7DA000DA747 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C557C5651D24F7DA000DA747 /* MainMenu.xib */; };
 		C557C5701D2503B1000DA747 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557C56E1D2503B1000DA747 /* MainViewController.swift */; };
 		C557C5711D2503B1000DA747 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C557C56F1D2503B1000DA747 /* MainViewController.xib */; };
-		C557C5791D25074A000DA747 /* Clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = C557C5781D25074A000DA747 /* Clipboard.png */; };
-		C560424C1D27BAC600521EA4 /* CustomPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560424B1D27BAC600521EA4 /* CustomPanel.swift */; };
 		C560424E1D2903FB00521EA4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560424D1D2903FB00521EA4 /* DataSource.swift */; };
 		C56042501D2908A100521EA4 /* FileSystemItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560424F1D2908A100521EA4 /* FileSystemItem.swift */; };
 		C56EC6891D63E546009C30C4 /* clip.png in Resources */ = {isa = PBXBuildFile; fileRef = C56EC6871D63E546009C30C4 /* clip.png */; };
 		C56EC68A1D63E546009C30C4 /* clip2.png in Resources */ = {isa = PBXBuildFile; fileRef = C56EC6881D63E546009C30C4 /* clip2.png */; };
+		C56EC68C1D63E609009C30C4 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56EC68B1D63E609009C30C4 /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +27,11 @@
 		C557C5681D24F7DA000DA747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C557C56E1D2503B1000DA747 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		C557C56F1D2503B1000DA747 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ../MainViewController.xib; sourceTree = "<group>"; };
-		C557C5781D25074A000DA747 /* Clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clipboard.png; sourceTree = "<group>"; };
-		C560424B1D27BAC600521EA4 /* CustomPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPanel.swift; sourceTree = "<group>"; };
 		C560424D1D2903FB00521EA4 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		C560424F1D2908A100521EA4 /* FileSystemItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemItem.swift; sourceTree = "<group>"; };
 		C56EC6871D63E546009C30C4 /* clip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clip.png; sourceTree = "<group>"; };
 		C56EC6881D63E546009C30C4 /* clip2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clip2.png; sourceTree = "<group>"; };
+		C56EC68B1D63E609009C30C4 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +66,15 @@
 			children = (
 				C557C56E1D2503B1000DA747 /* MainViewController.swift */,
 				C557C56F1D2503B1000DA747 /* MainViewController.xib */,
-				C560424B1D27BAC600521EA4 /* CustomPanel.swift */,
 				C557C5611D24F7DA000DA747 /* AppDelegate.swift */,
 				C557C5631D24F7DA000DA747 /* Assets.xcassets */,
 				C56EC6871D63E546009C30C4 /* clip.png */,
 				C56EC6881D63E546009C30C4 /* clip2.png */,
-				C557C5781D25074A000DA747 /* Clipboard.png */,
 				C557C5651D24F7DA000DA747 /* MainMenu.xib */,
 				C557C5681D24F7DA000DA747 /* Info.plist */,
 				C560424D1D2903FB00521EA4 /* DataSource.swift */,
 				C560424F1D2908A100521EA4 /* FileSystemItem.swift */,
+				C56EC68B1D63E609009C30C4 /* EventMonitor.swift */,
 			);
 			path = Paths;
 			sourceTree = "<group>";
@@ -142,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56EC68A1D63E546009C30C4 /* clip2.png in Resources */,
-				C557C5791D25074A000DA747 /* Clipboard.png in Resources */,
 				C56EC6891D63E546009C30C4 /* clip.png in Resources */,
 				C557C5641D24F7DA000DA747 /* Assets.xcassets in Resources */,
 				C557C5711D2503B1000DA747 /* MainViewController.xib in Resources */,
@@ -160,7 +156,7 @@
 				C557C5621D24F7DA000DA747 /* AppDelegate.swift in Sources */,
 				C557C5701D2503B1000DA747 /* MainViewController.swift in Sources */,
 				C560424E1D2903FB00521EA4 /* DataSource.swift in Sources */,
-				C560424C1D27BAC600521EA4 /* CustomPanel.swift in Sources */,
+				C56EC68C1D63E609009C30C4 /* EventMonitor.swift in Sources */,
 				C56042501D2908A100521EA4 /* FileSystemItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

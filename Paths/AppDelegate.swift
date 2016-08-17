@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
         // get the image of icon that the user will click
     let barIconImage = NSImage(named: "StatusBarButtonImage")
+    var eventMonitor: EventMonitor?
     
     @IBOutlet weak var window: NSWindow!
 
@@ -30,6 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // set the popover view controller as the MainViewController which is the main one for our application
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         popover.animates = false;
+        eventMonitor = EventMonitor(mask: [.LeftMouseDownMask , .RightMouseDownMask]) { [unowned self] event in
+            if self.popover.shown {
+                self.closePopover(event!)
+            }
+        }
+        eventMonitor?.start()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -40,11 +47,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func openPopover(sender:AnyObject){
         if let button = statusItem.button{
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+            eventMonitor?.start()
         }
     }
     // this will hide or close the pop view
     func closePopover(sender:AnyObject){
         popover.performClose(sender)
+        eventMonitor?.stop()
     }
     func togglePopover(sender:AnyObject){
         if popover.shown{
