@@ -15,7 +15,6 @@ class DataSource: NSObject, NSOutlineViewDataSource{
     
     let rootFile: FileSystemItem?
     let dateFormatter = NSDateFormatter()
-    //let pb: NSPasteboard?
     override init(){
         self.pb = NSPasteboard(name: NSDragPboard)
         self.rootFile = FileSystemItem.getRootItem()
@@ -72,7 +71,6 @@ class DataSource: NSObject, NSOutlineViewDataSource{
             if let fileItem = item as? FileSystemItem {
                 let fileURL = fileItem.getFullPath()!
                 array.append(fileURL)
-                print (array);
             }
             else {
                 return false

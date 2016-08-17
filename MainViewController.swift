@@ -15,7 +15,6 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
     
     @IBOutlet weak var quiteButton: NSButton!
     @IBOutlet weak var refreshButton: NSButton!
-    @IBOutlet weak var header: NSTableHeaderView!
     @IBOutlet weak var table: NSOutlineView!
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var dateTexField: NSTextField!
@@ -31,13 +30,10 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
     }
     
     @IBAction func refresh(sender: NSButton) {
-        //table.reloadItem(table.itemAtRow(6) as? FileSystemItem)
-        recursiveExpansion(0)
+        iterativeExpansion()
         
     }
-    func recursiveExpansion(index: Int)->(){
-       // let currentRow = self.table.selectedRow
-        
+    func iterativeExpansion()->(){
         var indexies = [Int]()
         
         for index in 0..<(self.table.numberOfRows) {
@@ -69,9 +65,7 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         
         self.refreshButton.bezelStyle = NSBezelStyle.SmallSquareBezelStyle
         self.quiteButton.bezelStyle = NSBezelStyle.SmallSquareBezelStyle
-        self.quiteButton.wantsLayer = true;
-        self.quiteButton.layer?.backgroundColor = NSColor(calibratedRed: 0.922, green: 0.922, blue: 0.922, alpha: 1.00).CGColor
-        
+      
         table.setDataSource(source)
         table.setDelegate(self)
         table.indentationPerLevel = CGFloat(20.0)
@@ -82,7 +76,6 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         self.dateFormatter.dateStyle = .MediumStyle
         self.dateFormatter.timeStyle = .NoStyle
         self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-        print("The header is\(self.table.tableColumnWithIdentifier("FileColumn")?.headerCell.title)")
         
     }
     func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool {
@@ -96,15 +89,5 @@ class MainViewController: NSViewController, NSOutlineViewDelegate, NSTableViewDe
         }
         return true
     }
-//    func tableView(tableView: NSTableView, willDisplayCell cell: AnyObject, forTableColumn tableColumn: NSTableColumn?, row: Int) {
-//        
-//        if let currentCell  = cell as NSOutlineVie
-//        if tableView.selectedRowIndexes.containsIndex(row){
-//            cell.backgroundColor =  NSColor.blueColor()
-//        }else{
-//            cell.backgroundColor = NSColor.whiteColor()
-//        }
-//        cell.drawsBackground = true;
-//    }
-    
+
 }

@@ -171,37 +171,48 @@
                     </scroller>
                 </scrollView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="xQF-50-YX4">
-                    <rect key="frame" x="529" y="0.0" width="48" height="48"/>
+                    <rect key="frame" x="539" y="15" width="29" height="29"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="48" id="Qyy-2M-aGr"/>
-                        <constraint firstAttribute="height" constant="48" id="w9m-PC-xoB"/>
+                        <constraint firstAttribute="width" constant="29" id="8RN-pz-xfB"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="Clipboard" imagePosition="right" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="eW6-w7-yiK">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="clip" imagePosition="right" alignment="center" alternateImage="clip2" imageScaling="proportionallyUpOrDown" inset="2" id="eW6-w7-yiK">
+                        <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="clipboardCopy:" target="-2" id="DiC-lp-4VL"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-41-zUC">
+                    <rect key="frame" x="535" y="0.0" width="36" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Copy" id="Y8Z-nb-zeS">
+                        <font key="font" metaFont="systemLight" size="13"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="xQF-50-YX4" secondAttribute="trailing" constant="9" id="9TJ-Kl-0yF"/>
                 <constraint firstItem="GPE-Iw-lnA" firstAttribute="leading" secondItem="ZSB-IQ-JDJ" secondAttribute="trailing" id="AVY-8y-o2M"/>
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="top" secondItem="GPE-Iw-lnA" secondAttribute="top" id="AiQ-RN-pbL"/>
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="EAo-ug-Hut"/>
-                <constraint firstItem="GPE-Iw-lnA" firstAttribute="trailing" secondItem="xQF-50-YX4" secondAttribute="trailing" id="Pyd-ZB-OVi"/>
+                <constraint firstItem="nwX-41-zUC" firstAttribute="bottom" secondItem="L28-Jd-sdi" secondAttribute="bottom" id="SUB-dn-1Ff"/>
+                <constraint firstItem="nwX-41-zUC" firstAttribute="centerX" secondItem="xQF-50-YX4" secondAttribute="centerX" id="bBU-si-BV6"/>
                 <constraint firstItem="L28-Jd-sdi" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="2" id="blA-7g-ZhR"/>
-                <constraint firstItem="xQF-50-YX4" firstAttribute="leading" secondItem="L28-Jd-sdi" secondAttribute="trailing" constant="3" id="cmz-tJ-c4c"/>
-                <constraint firstItem="L28-Jd-sdi" firstAttribute="bottom" secondItem="xQF-50-YX4" secondAttribute="bottom" id="dO6-rX-60B"/>
+                <constraint firstAttribute="bottom" secondItem="xQF-50-YX4" secondAttribute="bottom" constant="15" id="cIa-O6-aR7"/>
+                <constraint firstItem="xQF-50-YX4" firstAttribute="top" secondItem="L28-Jd-sdi" secondAttribute="top" id="eWg-Ev-zbh"/>
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="f75-p7-Gx0"/>
                 <constraint firstAttribute="bottom" secondItem="L28-Jd-sdi" secondAttribute="bottom" id="fvY-De-BB2"/>
                 <constraint firstItem="ZSB-IQ-JDJ" firstAttribute="bottom" secondItem="GPE-Iw-lnA" secondAttribute="bottom" id="j8L-ma-8XK"/>
+                <constraint firstItem="xQF-50-YX4" firstAttribute="leading" secondItem="L28-Jd-sdi" secondAttribute="trailing" constant="13" id="slc-gG-Vne"/>
                 <constraint firstAttribute="trailing" secondItem="GPE-Iw-lnA" secondAttribute="trailing" id="xve-nl-Xhj"/>
             </constraints>
             <point key="canvasLocation" x="331.5" y="-431.5"/>
         </customView>
     </objects>
     <resources>
-        <image name="Clipboard" width="104" height="104"/>
+        <image name="clip" width="128" height="128"/>
+        <image name="clip2" width="128" height="128"/>
     </resources>
 </document>

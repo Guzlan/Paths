@@ -31,7 +31,6 @@ class FileSystemItem: NSObject {
 
     static func getRootItem() -> FileSystemItem{
         if rootItem == nil {
-            print("No current root item setting one..")
             rootItem = FileSystemItem(path: "/", parentItem: nil)
         }
         return rootItem!
@@ -62,13 +61,10 @@ class FileSystemItem: NSObject {
             
             if fullPath != nil{
                 valid = fileManager.fileExistsAtPath(fullPath!)
-                print(valid)
+                
                 if valid && (fileManager.contentsAtPath(fullPath!) == nil){
-                    print ("This is a direcotry") // REMOVE
+                    
                     isDirectory = true
-                }
-                else{ //REMOVE
-                    print ("This is not a directory")
                 }
                 
             }
@@ -77,26 +73,20 @@ class FileSystemItem: NSObject {
                 var array = [String]()
                 var array2 = [NSURL]()
                 do {
-//                    array.appendContentsOf(try fileManager.contentsOfDirectoryAtPath(fullPath!))
-//                    print (array)
                     array2.appendContentsOf(try fileManager.contentsOfDirectoryAtURL(NSURL(fileURLWithPath: fullPath!), includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions.SkipsHiddenFiles))
                     array = array2.map { String($0.path!)}
-                    print (array)
-//                    print(strings)
+                    
                     self.children = [FileSystemItem]()
                 }catch{
-                    print("Could not add the contents of your directory")
                 }
                 
                 for child in array {
                     let newChild = FileSystemItem(path: child, parentItem: self)
                     self.children!.append(newChild)
-                    //print ("I just appended \(newChild.parentNode)")
                 }
             }else {
                 self.children = FileSystemItem.leafNodes
             }
-            // Do I need to implment children ???? *******
     }
     
     func getRelativePath()-> String? {
@@ -104,17 +94,10 @@ class FileSystemItem: NSObject {
     }
     
     
-    func printChildren (){
-        for child in self.children! {
-            print (child.relativePath)
-            
-        }
-    }
     func getChildAtIndex (index :Int)->FileSystemItem? {
         if let childrenOfSelf = self.children where index < childrenOfSelf.count && index >= 0 { // incase of passing illegal index.
                     return self.children![index]
         }else {
-            print("Illegal index!")
             return nil
         }
     }
@@ -127,7 +110,6 @@ class FileSystemItem: NSObject {
             return (self.children! == FileSystemItem.leafNodes) ? -1 : (self.children!.count)
         }
         else {
-            print("Can't get number of children, probably a normal file")
             return -1
         }
     }
@@ -136,17 +118,13 @@ class FileSystemItem: NSObject {
     func getFullPath ()->String? {
         if self.relativePath != nil {
             if self.parentNode == nil {
-                print(self.relativePath)
-                print("No parents for this file item")
                 return relativePath
             }else {
                 // recurse up the hierarchy, prepending each parent’s path
-                print ("but there is a parent for \(relativePath)")
                 return parentNode?.getFullPath()?.stringByAppendingString(relativePath!+"/")
             }
         }
         else {
-            print( "Can't get a relative path/ no relative path")
             return nil
         }
         
