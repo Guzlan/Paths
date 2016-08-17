@@ -13,15 +13,11 @@ import CoreServices
 
 class DataSource: NSObject, NSOutlineViewDataSource{
     
-    let rootFile: FileSystemItem?
-    let dateFormatter = NSDateFormatter()
+    let rootFile: FileSystemItem? // the root of the file system
     override init(){
-        self.pb = NSPasteboard(name: NSDragPboard)
-        self.rootFile = FileSystemItem.getRootItem()
-        self.rootFile?.setChildren()
-        self.dateFormatter.dateStyle = .MediumStyle
-        self.dateFormatter.timeStyle = .NoStyle
-        self.dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        self.pb = NSPasteboard(name: NSDragPboard) // paste board to copy the file path/url for copying file item when dragging and dropping
+        self.rootFile = FileSystemItem.getRootItem() // getting the root file item
+        self.rootFile?.setChildren() // setting root children
         super.init()
     }
     func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int {
@@ -48,25 +44,21 @@ class DataSource: NSObject, NSOutlineViewDataSource{
         }
     }
     
-        func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
-            if item != nil {
-                    let filetItem = item as? FileSystemItem
-                    if tableColumn?.identifier == "FileColumn"{
-                        return (filetItem?.getRelativePath() == "/") ? "root" : filetItem?.getRelativePath()
-                        
-                    }
-                    else {
-                        return dateFormatter.stringFromDate((filetItem?.getDate())!)
-                    }
-                }else {
-                    return "not set"
-                }
+    func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
+        if item != nil {
+            let filetItem = item as? FileSystemItem
+            return (filetItem?.getRelativePath() == "/") ? "root" : filetItem?.getRelativePath()
+        }else {
+            return "not set"
         }
+    }
     
     let pb: NSPasteboard?
     func outlineView(outlineView: NSOutlineView, writeItems items: [AnyObject], toPasteboard pasteboard: NSPasteboard) -> Bool {
         var array = [String]()
         self.pb?.declareTypes([NSFilesPromisePboardType], owner: self)
+        // iterating through selected items on the table, adding their url's to
+        // array for them to be copied if dragged and dropeed
         for item in items {
             if let fileItem = item as? FileSystemItem {
                 let fileURL = fileItem.getFullPath()!

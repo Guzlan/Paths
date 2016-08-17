@@ -15,8 +15,8 @@ class FileSystemItem: NSObject {
     var parentNode : FileSystemItem? // the parent item of this sytem file item (itself is an item)
     var children : [FileSystemItem]? // children of the current system file item (themselves are children)
     
-    var date = NSDate()
-    var type = String()
+    var date = NSDate() // date of a file item
+    var type = String() // type of a file item
     
     //type variables that hold the root item and the leaf items/nodes
     static var rootItem:FileSystemItem?
@@ -27,8 +27,8 @@ class FileSystemItem: NSObject {
         self.relativePath = NSURL(fileURLWithPath: path).lastPathComponent
         self.parentNode = item
     }
+    
     // type methods that sets or returns the root item of the file system if it does not exist
-
     static func getRootItem() -> FileSystemItem{
         if rootItem == nil {
             rootItem = FileSystemItem(path: "/", parentItem: nil)
@@ -39,14 +39,13 @@ class FileSystemItem: NSObject {
     
     // Creates, caches, and returns the array of children
     // Loads children incrementally
-    
     func setChildren (){
             let fileManager = NSFileManager.defaultManager()  // get a file manager instance to use for fetching paths
-            let fullPath = self.getFullPath()
+            let fullPath = self.getFullPath() // get the full path of file item
         do {
             let attributes = try fileManager.attributesOfItemAtPath(fullPath!)
-            self.date = attributes[NSFileCreationDate] as! NSDate
-            if let currentFileItemType = attributes[NSFileType] as! String? {
+            self.date = attributes[NSFileCreationDate] as! NSDate // getting the creation date of the file
+            if let currentFileItemType = attributes[NSFileType] as! String? { // getting the file type attribute
                 self.type = currentFileItemType
             }else {
                 self.type = "folder"
