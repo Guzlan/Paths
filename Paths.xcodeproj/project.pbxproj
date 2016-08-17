@@ -112,6 +112,11 @@
 					C557C55D1D24F7DA000DA747 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 8ZK23DRA3H;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -265,6 +270,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paths/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-guzlan.amro.Paths";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -278,6 +284,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Paths/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-guzlan.amro.Paths";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
