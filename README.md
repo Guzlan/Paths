@@ -5,7 +5,7 @@
 
 ###Paths allows you to navigate your finders's/file System's hierarchy, drag and drop files to your apps or editors, as well as copying the paths to your files and seeing their extensions (incase you need to reference them in your code).  
 
-### To install, check the App/Archive folder. 
+### To install, just download/clone the repo and check the App/Archive folder. 
 
 
 *Some screenshots of what it looks like..*
